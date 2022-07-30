@@ -6,3 +6,8 @@ export const Container = styled.section`
   padding: 0px 5%;
   padding-top: 60px;
 `;
+
+export const Section = styled.section`
+  width: 100%;
+  margin-top: 30px;
+`;

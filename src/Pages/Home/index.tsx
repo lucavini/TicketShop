@@ -1,16 +1,20 @@
-import React from 'react';
-
 // Components
 import NavBar from '../../Components/NavBar';
+import SectionTitle from '../../Components/SectionTitle';
+import Slider from './Components/Slider';
 
 // Styles
-import { Container } from './styles';
+import { Container, Section } from './styles';
 
 function Home() {
   return (
     <Container>
       <NavBar />
-      a
+
+      <Section>
+        <SectionTitle>Destaques da semana</SectionTitle>
+        <Slider />
+      </Section>
 
     </Container>
   );
