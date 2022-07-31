@@ -1,7 +1,9 @@
 import React from 'react';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import * as yup from 'yup';
 
 // Components
-import { Visibility, VisibilityOff } from '@mui/icons-material';
 import {
   Button,
   Checkbox,
@@ -11,7 +13,9 @@ import {
   InputLabel,
   OutlinedInput,
   TextField,
+  FormHelperText,
 } from '@mui/material';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { mask } from 'remask';
 import { PrimaryButton } from '../../../Components/Buttons';
 import Title from './Title';
@@ -23,11 +27,35 @@ import { ActionContainer, FormGroup, TermsGroup } from '../styles';
 import { ReactComponent as FacebookIcon } from '../../../Assets/icons/facebook.svg';
 import { ReactComponent as GoogleIcon } from '../../../Assets/icons/google.svg';
 
+interface IFormInput {
+  name: string;
+  surname: string;
+  email: string;
+  phone: string;
+  password: string;
+  confirmPassword: string;
+}
+
+const schema = yup.object({
+  name: yup.string().required('Informe seu nome'),
+  surname: yup.string().required('Informe seu sobrenome'),
+  phone: yup.string().required('Informe seu telefone'),
+  email: yup.string().required('Informe seu Email').email('Email invalido'),
+  password: yup.string().required('Informe sua senha'),
+  confirmPassword: yup.string().required('Informe sua senha'),
+}).required();
+
 function Register() {
   const [showPassword, setShowPassword] = React.useState(false);
-  const [phone, setPhone] = React.useState<string>();
 
-  function handleSubmit() {}
+  const { control, handleSubmit, formState: { errors } } = useForm<IFormInput>({
+    resolver: yupResolver(schema),
+  });
+
+  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+    // eslint-disable-next-line no-console
+    console.log(data);
+  };
 
   return (
     <ActionContainer>
@@ -35,13 +63,7 @@ function Register() {
         title='Cadastro'
         subtitle='Realize seu Cadastro e para ter acesso a nossa plataforma completa.'
       />
-
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-          handleSubmit();
-        }}
-      >
+      <form onSubmit={handleSubmit(onSubmit)}>
         <FormGroup className='fullColumn'>
           <Button
             fullWidth
@@ -73,81 +95,136 @@ function Register() {
           Ou preencha o formulario de cadastro:
         </span>
 
-        <TextField
-          required
-          className='input leftColumn'
-          fullWidth
-          label='Nome'
-          color='primary'
+        <Controller
+          control={control}
+          defaultValue=''
+          name='name'
+          render={({ field: { value, onChange } }) => (
+            <TextField
+              className='input leftColumn'
+              fullWidth
+              label='Nome'
+              value={value}
+              onChange={onChange}
+              helperText={errors.name?.message}
+              error={errors.name?.message !== undefined}
+            />
+          )}
         />
 
-        <TextField
-          required
-          className='input rightColumn'
-          fullWidth
-          label='Sobrenome'
-          color='primary'
+        <Controller
+          control={control}
+          defaultValue=''
+          name='surname'
+          render={({ field: { value, onChange } }) => (
+            <TextField
+              className='input rightColumn'
+              fullWidth
+              label='Sobrenome'
+              value={value}
+              onChange={onChange}
+              helperText={errors.surname?.message}
+              error={errors.surname?.message !== undefined}
+            />
+          )}
         />
 
-        <TextField
-          required
-          className='input fullColumn'
-          fullWidth
-          label='E-mail'
-          color='primary'
+        <Controller
+          control={control}
+          defaultValue=''
+          name='email'
+          render={({ field: { value, onChange } }) => (
+            <TextField
+              className='input fullColumn'
+              fullWidth
+              label='E-mail'
+              value={value}
+              onChange={onChange}
+              helperText={errors.email?.message}
+              error={errors.email?.message !== undefined}
+            />
+          )}
         />
 
-        <TextField
-          required
-          className='input fullColumn'
-          fullWidth
-          label='Telefone'
-          value={phone}
-          onChange={({ target }) => setPhone(mask(target.value, '(99) 9 9999-9999'))}
+        <Controller
+          control={control}
+          defaultValue=''
+          name='phone'
+          render={({ field: { value, onChange } }) => (
+            <TextField
+              className='input fullColumn'
+              fullWidth
+              label='Telefone'
+              value={value}
+              onChange={({ target }) => onChange(mask(target.value, '(99) 9 9999-9999'))}
+              helperText={errors.phone?.message}
+              error={errors.phone?.message !== undefined}
+            />
+          )}
         />
 
         <FormControl fullWidth variant='outlined' className='input leftColumn'>
-          <InputLabel htmlFor='outlined-adornment-password'>Senha</InputLabel>
-          <OutlinedInput
-            required
-            id='outlined-adornment-password'
-            type={showPassword ? 'text' : 'password'}
-            endAdornment={
-              <InputAdornment position='end'>
-                <IconButton
-                  aria-label='toggle password visibility'
-                  onClick={() => setShowPassword(!showPassword)}
-                  edge='end'
-                >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            }
-            label='Senha'
+          <InputLabel>
+            Senha
+          </InputLabel>
+          <Controller
+            control={control}
+            defaultValue=''
+            name='password'
+            render={({ field: { value, onChange } }) => (
+              <OutlinedInput
+                type={showPassword ? 'text' : 'password'}
+                value={value}
+                onChange={onChange}
+                error={errors.password?.message !== undefined}
+                endAdornment={
+                  <InputAdornment position='end'>
+                    <IconButton
+                      onClick={() => setShowPassword(!showPassword)}
+                      edge='end'
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+                label='Senha'
+              />
+            )}
           />
+          {errors.password?.message !== undefined
+          && <FormHelperText error>{errors.password?.message}</FormHelperText>}
         </FormControl>
 
         <FormControl fullWidth variant='outlined' className='input rightColumn'>
-          <InputLabel htmlFor='outlined-adornment-password'>
+          <InputLabel>
             Confime a Senha
           </InputLabel>
-          <OutlinedInput
-            required
-            id='outlined-adornment-password'
-            type={showPassword ? 'text' : 'password'}
-            endAdornment={
-              <InputAdornment position='end'>
-                <IconButton
-                  aria-label='toggle password visibility'
-                  onClick={() => setShowPassword(!showPassword)}
-                  edge='end'
-                >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            }
-            label='Confime a Senha'
+          <Controller
+            control={control}
+            defaultValue=''
+            name='confirmPassword'
+            render={({ field: { value, onChange } }) => (
+              <OutlinedInput
+                type={showPassword ? 'text' : 'password'}
+                value={value}
+                onChange={onChange}
+                error={errors.password?.message !== undefined}
+                endAdornment={
+                  <InputAdornment position='end'>
+                    <IconButton
+                      onClick={() => setShowPassword(!showPassword)}
+                      edge='end'
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+                label='Confime a Senha'
+              />
+            )}
           />
+          {errors.password?.message !== undefined
+          && <FormHelperText error>{errors.password?.message}</FormHelperText>}
         </FormControl>
 
         <TermsGroup className='fullColumn'>
