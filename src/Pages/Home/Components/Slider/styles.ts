@@ -6,7 +6,6 @@ export const SlideContainer = styled('div')`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 30px;
   position: relative;
 
   .Swipeable {

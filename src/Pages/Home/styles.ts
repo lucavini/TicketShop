@@ -11,3 +11,10 @@ export const Section = styled.section`
   width: 100%;
   margin-top: 30px;
 `;
+
+export const Categories = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+`;
