@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // Components
 import {
@@ -12,6 +13,7 @@ import {
 } from '@mui/material';
 import { VisibilityOff, Visibility } from '@mui/icons-material';
 import Title from './Title';
+import { PrimaryButton, SecondaryButton } from '../../../Components/Buttons';
 
 // Styles
 import { ActionContainer, FormGroup } from '../styles';
@@ -21,6 +23,7 @@ import { ReactComponent as GoogleIcon } from '../../../Assets/icons/google.svg';
 import { ReactComponent as FacebookIcon } from '../../../Assets/icons/facebook.svg';
 
 function Login() {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = React.useState(false);
 
   function handleSubmit() {}
@@ -98,6 +101,25 @@ function Login() {
         <p className='fullColumn'>
           Esqueceu sua senha? <span>Recupere aqui</span>
         </p>
+
+        <div className="buttons fullColumn">
+
+          <SecondaryButton
+            className="secondary-button"
+            variant="contained"
+            type="submit"
+            onClick={() => navigate('/login/register')}
+          >
+            Cadastrar
+          </SecondaryButton>
+          <PrimaryButton
+            variant="contained"
+            type="submit"
+            loadingPosition='center'
+          >
+            Login
+          </PrimaryButton>
+        </div>
       </form>
     </ActionContainer>
   );

@@ -59,7 +59,7 @@ export const Banner = styled.div`
 export const ContainerOperation = styled.section`
   width: 100%;
   height: 100vh;
-  padding: 0% 5%;
+  padding: 20px 5%;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -91,7 +91,7 @@ export const ActionContainer = styled.div`
     row-gap: 20px;
     text-align: center;
     margin-top: 34px;
-    margin-bottom: 30px;
+    padding-bottom: 20px;
 
     .leftColumn {
       grid-column: 1;
