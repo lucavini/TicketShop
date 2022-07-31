@@ -3,7 +3,7 @@ import { Container } from './styles';
 
 // Pages
 import Home from '../Pages/Home';
-import Login from '../Pages/Auth/Login';
+import Auth from '../Pages/Auth';
 
 function Router() {
   return (
@@ -11,7 +11,7 @@ function Router() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/login/' element={<Login />} />
+          <Route path='/login/*' element={<Auth />} />
         </Routes>
       </BrowserRouter>
     </Container>
