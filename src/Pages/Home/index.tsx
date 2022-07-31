@@ -16,6 +16,9 @@ function Home() {
         <Slider />
       </Section>
 
+      <Section>
+        <SectionTitle>Categorias</SectionTitle>
+      </Section>
     </Container>
   );
 }
