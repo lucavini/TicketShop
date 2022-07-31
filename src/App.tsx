@@ -1,4 +1,3 @@
-import React from 'react';
 import { ThemeProvider as MUIThemeProvider } from '@mui/material/styles';
 import { ThemeProvider as SCThemeProvider } from 'styled-components';
 import GlobalStyles from './Styles/global';
@@ -6,6 +5,7 @@ import GlobalStyles from './Styles/global';
 import MUITheme from './Styles/Default/MUI';
 import SCTheme from './Styles/Default/Styled';
 
+import { AuthProvider } from './Context/AuthContext';
 import Router from './Router';
 
 function App() {
@@ -13,7 +13,9 @@ function App() {
     <MUIThemeProvider theme={MUITheme}>
       <SCThemeProvider theme={SCTheme}>
         <GlobalStyles />
-        <Router />
+        <AuthProvider>
+          <Router />
+        </AuthProvider>
       </SCThemeProvider>
     </MUIThemeProvider>
   );

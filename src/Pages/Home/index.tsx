@@ -9,7 +9,7 @@ import EventCard from '../../Components/EventCard';
 // Styles
 import { Categories, Container, Section, EventResults } from './styles';
 
-import { categories } from '../../Api';
+import { categories } from '../../Service/ApiData';
 
 function Home() {
   return (

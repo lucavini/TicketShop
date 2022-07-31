@@ -14,6 +14,7 @@ import {
 import { VisibilityOff, Visibility } from '@mui/icons-material';
 import Title from './Title';
 import { PrimaryButton, SecondaryButton } from '../../../Components/Buttons';
+import { useAuth } from '../../../Context/AuthContext';
 
 // Styles
 import { ActionContainer, FormGroup } from '../styles';
@@ -24,9 +25,16 @@ import { ReactComponent as FacebookIcon } from '../../../Assets/icons/facebook.s
 
 function Login() {
   const navigate = useNavigate();
+  const { handleLogin } = useAuth();
   const [showPassword, setShowPassword] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
 
-  function handleSubmit() {}
+  async function handleSubmit() {
+    setIsLoading(true);
+    const response = await handleLogin();
+    console.log(response);
+    setIsLoading(false);
+  }
 
   return (
     <ActionContainer>
@@ -116,6 +124,7 @@ function Login() {
             variant="contained"
             type="submit"
             loadingPosition='center'
+            loading={isLoading}
           >
             Login
           </PrimaryButton>
