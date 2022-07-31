@@ -8,14 +8,14 @@ import Reset from './Components/Reset';
 import { Banner, Container, ContainerOperation } from './styles';
 
 // Assets
-import Logo from '../../Assets/images/Logo.svg';
+import { ReactComponent as Logo } from '../../Assets/images/Logo.svg';
 
 function Auth() {
   return (
     <Container>
       <Banner>
         <Link to='/'>
-          <img src={Logo} alt='logo' />
+          <Logo className='logo' />
         </Link>
         <span>Sua Loja online para compra e venda de ingressos!</span>
       </Banner>

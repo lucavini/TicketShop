@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import authbanner from '../../Assets/images/authbanner.jpg';
 
 export const Container = styled.main`
   width: 100%;
@@ -31,22 +32,28 @@ export const Banner = styled.div`
     z-index: -1;
     opacity: 0.55;
     background: ${({ theme }) => theme.palette.secondary.main};
+    background-image: url(${authbanner});
+    background-repeat: no-repeat;
+    background-position: 30% 25%;
+    background-size: cover;
   }
-
-  img {
-    width: 50%;
+  
+  .logo {
+    width: 400px;
+    height: 100px;
     position: absolute;
     left: 15%;
-    top: 15%;
+    top: 5%;
+    fill: ${({ theme }) => theme.palette.primary.dark};
   }
 
   span {
     font-family: 'Anton';
     font-size: 24px;
-    color: ${({ theme }) => theme.palette.secondary.lighter};
+    color: ${({ theme }) => theme.palette.secondary.light};
     position: absolute;
     left: 15%;
-    top: 30%;
+    top: 20%;
   }
 
   & {
@@ -59,7 +66,7 @@ export const Banner = styled.div`
 export const ContainerOperation = styled.section`
   width: 100%;
   height: 100vh;
-  padding: 0% 5%;
+  padding: 20px 5%;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -91,7 +98,7 @@ export const ActionContainer = styled.div`
     row-gap: 20px;
     text-align: center;
     margin-top: 34px;
-    margin-bottom: 30px;
+    padding-bottom: 20px;
 
     .leftColumn {
       grid-column: 1;

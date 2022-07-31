@@ -9,6 +9,12 @@ export const TopBar = styled(AppBar)`
   flex-direction: row;
   align-items: center;
 
+  .logo {
+    width: 150px;
+    height: 60px;
+    fill: ${({ theme }) => theme.palette.primary.main};
+  }
+
   ul {
     height: 100%;
     display: flex;

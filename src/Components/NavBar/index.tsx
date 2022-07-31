@@ -10,7 +10,7 @@ import { AppBar, Box, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 // styles
-import Logo from '../../Assets/images/Logo.svg';
+import { ReactComponent as Logo } from '../../Assets/images/Logo.svg';
 import {
   Item,
   SearchButton,
@@ -26,7 +26,7 @@ function NavBar() {
       <AppBar position='fixed'>
         <TopBar>
           <Link to='/'>
-            <img src={Logo} alt='logo' />
+            <Logo className='logo' />
           </Link>
 
           <Box sx={{ flexGrow: 1 }} />
