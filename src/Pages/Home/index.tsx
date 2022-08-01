@@ -1,3 +1,5 @@
+import React from 'react';
+
 // Components
 import NavBar from '../../Components/NavBar';
 import SectionTitle from '../../Components/SectionTitle';
@@ -5,6 +7,7 @@ import Categorie from './Components/Categorie';
 import Slider from './Components/Slider';
 import InfoBar from './Components/InfoBar';
 import EventCard from '../../Components/EventCard';
+import Loader from '../../Components/Loader';
 
 // Styles
 import { Categories, Container, Section, EventResults } from './styles';
@@ -12,8 +15,12 @@ import { Categories, Container, Section, EventResults } from './styles';
 import { categories } from '../../Service/ApiData';
 
 function Home() {
+  const [isLoading, setIsLoading] = React.useState(true);
+
   return (
     <Container>
+      <Loader isLoading={isLoading} text="Buscando eventos" />
+
       <NavBar />
 
       <Section>
