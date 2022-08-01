@@ -1,3 +1,5 @@
+import React from 'react';
+
 // Components
 import {
   AccountCircle,
@@ -6,11 +8,13 @@ import {
   Search,
   SellOutlined,
 } from '@mui/icons-material';
-import { AppBar, Box, Button } from '@mui/material';
+import { AppBar, Box, Button, Avatar, Drawer } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { ReactComponent as Logo } from '../../Assets/images/Logo.svg';
+import { useAuth } from '../../Context/AuthContext';
+import DrawerContent from '../DrawerContent';
 
 // styles
-import { ReactComponent as Logo } from '../../Assets/images/Logo.svg';
 import {
   Item,
   SearchButton,
@@ -21,6 +25,9 @@ import {
 } from './styles';
 
 function NavBar() {
+  const { signed, user } = useAuth();
+  const [drawerOpen, setDrawerOpen] = React.useState(false);
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position='fixed'>
@@ -87,18 +94,45 @@ function NavBar() {
             </Item>
 
             <Item className='option'>
-              <Button
-                component={Link}
-                to='/login'
-                variant='text'
-                sx={{ textTransform: 'capitalize' }}
-              >
-                <AccountCircle sx={{ marginRight: '5px' }} /> Entrar
-              </Button>
+              {!signed ? (
+                <Button
+                  component={Link}
+                  to='/login'
+                  variant='text'
+                  sx={{ textTransform: 'capitalize' }}
+                >
+                  <AccountCircle sx={{ marginRight: '5px' }} /> Entrar
+                </Button>
+              ) : (
+                <Button
+                  variant='text'
+                  sx={{
+                    textTransform: 'capitalize',
+                    fontSize: '18px',
+                    fontWeight: 400,
+                  }}
+                  onClick={() => setDrawerOpen(true)}
+                >
+                  <Avatar
+                    src='/broken-image.jpg'
+                    sx={{ marginRight: '5px', width: '24px', height: '24px' }}
+                  />
+                  {user?.name.toLowerCase()}
+                </Button>
+              )}
+
             </Item>
           </ul>
         </TopBar>
       </AppBar>
+
+      <Drawer
+        anchor='right'
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+      >
+        <DrawerContent setDrawerOpen={setDrawerOpen} />
+      </Drawer>
     </Box>
   );
 }

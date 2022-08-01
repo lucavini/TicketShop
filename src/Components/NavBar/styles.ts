@@ -33,7 +33,7 @@ export const Item = styled('li')`
     margin-left: 42px;
   }
 
-  & a {
+  & a, button {
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
