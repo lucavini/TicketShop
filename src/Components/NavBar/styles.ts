@@ -8,6 +8,7 @@ export const TopBar = styled(AppBar)`
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-bottom: 60px;
 
   .logo {
     width: 150px;

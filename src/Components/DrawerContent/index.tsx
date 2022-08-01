@@ -47,7 +47,7 @@ function DrawerContent({ setDrawerOpen }: Props) {
         <span>MENU</span>
 
         <Menu>
-          <MenuItem component={Link} to='/#' className='item'>
+          <MenuItem component={Link} to='/myaccout/' className='item'>
             <ListItemIcon>
               <ManageAccountsOutlinedIcon />
             </ListItemIcon>
