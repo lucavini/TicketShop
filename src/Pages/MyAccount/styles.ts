@@ -4,11 +4,12 @@ export const Container = styled.section`
   width: 100%;
   display: flex;
   flex-direction: column;
+  padding-top: 60px;
 `;
 
 export const Wrapper = styled.div`
   width: 800px;
-  margin: 60px 0px 0px 40px;
+  margin: 10px 0px 0px 40px;
 `;
 
 export const Title = styled.h1`

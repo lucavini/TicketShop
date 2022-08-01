@@ -8,9 +8,8 @@ import SupportAgentOutlinedIcon from '@mui/icons-material/SupportAgentOutlined';
 import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
 import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
 import Avatar from '@mui/material/Avatar';
-import NavBar from '../../Components/NavBar';
-// import Header from '../../Components/Header';
-// import HeaderChildren from '../../Components/HeaderChildren';
+import Header from '../../Components/Header';
+import HeaderChildren from '../../Components/HeaderChildren';
 
 // styles
 import {
@@ -30,10 +29,9 @@ function MyAccount() {
 
   return (
     <Container>
-      {/* <Header>
+      <Header>
         <HeaderChildren />
-      </Header> */}
-      <NavBar />
+      </Header>
 
       <Wrapper>
         <Title>Dados pessoais</Title>
