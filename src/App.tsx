@@ -2,8 +2,8 @@ import { ThemeProvider as MUIThemeProvider } from '@mui/material/styles';
 import { ThemeProvider as SCThemeProvider } from 'styled-components';
 import GlobalStyles from './Styles/global';
 
-import MUITheme from './Styles/Default/MUI';
-import SCTheme from './Styles/Default/Styled';
+import MUITheme from './Styles/Themes/MUI';
+import SCTheme from './Styles/Themes/Styled';
 
 import { AuthProvider } from './Context/AuthContext';
 import Router from './Router';
