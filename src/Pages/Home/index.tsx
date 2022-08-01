@@ -13,9 +13,30 @@ import Loader from '../../Components/Loader';
 import { Categories, Container, Section, EventResults } from './styles';
 
 import { categories } from '../../Service/ApiData';
+import { Api } from '../../Service/api';
+import { WeekEvent } from '../../Interfaces';
 
 function Home() {
   const [isLoading, setIsLoading] = React.useState(true);
+  const [weekEvents, setWeekEvents] = React.useState<WeekEvent[]>([]);
+
+  React.useEffect(() => {
+    async function getEventsData() {
+      setIsLoading(true);
+
+      try {
+        const weekEventsResponse = await Api('WeekEvents/', null);
+        setWeekEvents(weekEventsResponse.data);
+      } catch (err: any) {
+        // eslint-disable-next-line no-console
+        console.error(err);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    getEventsData();
+  }, []);
 
   return (
     <Container>
@@ -25,7 +46,7 @@ function Home() {
 
       <Section>
         <SectionTitle>Destaques da semana</SectionTitle>
-        <Slider />
+        <Slider events={weekEvents} />
       </Section>
 
       <Section>

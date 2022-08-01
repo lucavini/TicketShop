@@ -1,9 +1,10 @@
 /* eslint-disable react/jsx-no-bind */
 // Components
-import React from 'react';
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
+import React from 'react';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
+import { WeekEvent } from '../../../../Interfaces';
 import SliderCard from '../SliderCard';
 
 // Styles
@@ -16,9 +17,13 @@ import {
 
 const AutoPlaySwipeableViews: any = autoPlay(SwipeableViews);
 
-function Slider() {
+type Props = {
+  events: WeekEvent[];
+};
+
+function Slider({ events }: Props) {
+  const maxSteps = events.length;
   const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = 4;
 
   function handleStepChange(index: number) {
     setActiveStep(index);
@@ -44,14 +49,13 @@ function Slider() {
         onChangeIndex={handleStepChange}
         enableMouseEvents
       >
-        <SliderCard />
-        <SliderCard />
-        <SliderCard />
-        <SliderCard />
+        {events.map((event, index) => (
+          <SliderCard key={index} event={event} />
+        ))}
       </AutoPlaySwipeableViews>
 
       <MobileStepper
-        steps={4}
+        steps={maxSteps}
         position='static'
         activeStep={activeStep}
         nextButton={null}

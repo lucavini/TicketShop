@@ -8,6 +8,9 @@ import teatro from '../../Assets/images/teatro.jpg';
 
 // Events
 import whindersson from '../../Assets/images/banner1.png';
+import concurso from '../../Assets/images/palestra.jpg';
+import anitta from '../../Assets/images/anitta.jpg';
+import lollapalooza from '../../Assets/images/lollapalooza.jpg';
 
 // Interfaces
 import { CategoriesProps, Client, WeekEvent } from '../../Interfaces';
@@ -56,5 +59,29 @@ export const weekEvents: WeekEvent[] = [
     title: 'whindersson nunes: Proparoxitona',
     description:
       'Whindersson Nunes Batista, mais conhecido como Whindersson Nunes é um comediante, youtuber, cantor, compositor e ator brasileiro, conheci...',
+  },
+  {
+    cover: concurso,
+    date: 'de: 06/08 até: 07/08',
+    location: 'São Paulo, SP',
+    title: 'Como se preparar para concursos ?',
+    description:
+      'Começar qualquer coisa do zero pode ser muito intimidador e estudar para concurso não é uma exceção: entre a infinidade de carreiras, cont...',
+  },
+  {
+    cover: anitta,
+    date: 'de: 06/08 até: 07/08',
+    location: 'Rio de janeiro, RJ',
+    title: 'Show Completo | Anitta + Maiara & Maraisa',
+    description:
+      'A dupla Maiara & Maraisa convidam Anitta para cantar "Show Completo" no Música Boa Ao Vivo desta terça-feira, dia 8.',
+  },
+  {
+    cover: lollapalooza,
+    date: 'de: 06/08 até: 07/08',
+    location: 'Rio de janeiro, RJ',
+    title: 'Lollapalooza 2022',
+    description:
+      'Programação, line-up, shows ao vivo, notícias, fotos e vídeos sobre o festival de música Lollapalooza 2022, que acontece nos dias 25, 26 e 27 de Março',
   },
 ];

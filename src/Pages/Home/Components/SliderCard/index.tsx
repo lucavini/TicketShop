@@ -1,31 +1,32 @@
 // Components
 import { PlaceOutlined } from '@mui/icons-material';
 import { Button } from '@mui/material';
+import { WeekEvent } from '../../../../Interfaces';
 
 // Styles
 import { Card, Content, Description, ImageBox, Title } from './styles';
 
-// Assets
-import cover from '../../../../Assets/images/banner1.png';
+type Props = {
+  event: WeekEvent;
+};
 
-function SliderCard() {
+function SliderCard({ event }: Props) {
   return (
     <Card>
       <ImageBox>
-        <img src={cover} alt="cover" />
+        <img src={event.cover} alt="cover" />
       </ImageBox>
 
       <Content>
-        <span className='caption date'>de: 06/08 até: 07/08 </span>
+        <span className='caption date'>{event.date}</span>
         <span className='caption location'>
-          <PlaceOutlined className='icon' /> Rio de janeiro, RJ
+          <PlaceOutlined className='icon' /> {event.location}
         </span>
 
-        <Title>whindersson nunes: Proparoxitona</Title>
+        <Title>{event.title}</Title>
 
         <Description>
-          Whindersson Nunes Batista, mais conhecido como Whindersson Nunes é um
-          comediante, youtuber, cantor, compositor e ator brasileiro, conheci...
+          {event.description}
         </Description>
 
         <Button variant='outlined'>ver mais</Button>
