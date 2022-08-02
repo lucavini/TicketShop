@@ -36,37 +36,39 @@ function NavBar() {
         <TopBar>
           {showInput ? (
             <>
-              <Box sx={{ flexGrow: 1 }} />
 
-              <SearchContainer className='fullInput'>
-                <SearchIconWrapper>
-                  <SellOutlined />
-                </SearchIconWrapper>
-                <StyledInputBase
-                  placeholder='Evento, show, palestra'
-                  inputProps={{ 'aria-label': 'search' }}
-                />
-                <SearchIconWrapper>
-                  <KeyboardArrowDownOutlined />
-                </SearchIconWrapper>
-              </SearchContainer>
+              <div className='mobileInput'>
 
-              <SearchContainer className='fullInput'>
-                <SearchIconWrapper>
-                  <PlaceOutlined />
-                </SearchIconWrapper>
-                <StyledInputBase
-                  placeholder='Localização'
-                  inputProps={{ 'aria-label': 'search' }}
-                />
-                <SearchIconWrapper>
-                  <KeyboardArrowDownOutlined />
-                </SearchIconWrapper>
-              </SearchContainer>
+                <SearchContainer className='fullInput'>
+                  <SearchIconWrapper>
+                    <SellOutlined className='icon' />
+                  </SearchIconWrapper>
+                  <StyledInputBase
+                    placeholder='Evento, show, palestra'
+                    inputProps={{ 'aria-label': 'search' }}
+                  />
+                  <SearchIconWrapper>
+                    <KeyboardArrowDownOutlined />
+                  </SearchIconWrapper>
+                </SearchContainer>
 
-              <SearchButton>
-                <Search />
-              </SearchButton>
+                <SearchContainer className='fullInput'>
+                  <SearchIconWrapper>
+                    <PlaceOutlined className='icon' />
+                  </SearchIconWrapper>
+                  <StyledInputBase
+                    placeholder='Localização'
+                    inputProps={{ 'aria-label': 'search' }}
+                  />
+                  <SearchIconWrapper>
+                    <KeyboardArrowDownOutlined />
+                  </SearchIconWrapper>
+                </SearchContainer>
+
+                <SearchButton>
+                  <Search />
+                </SearchButton>
+              </div>
 
               <Item
                 className='searchButton'

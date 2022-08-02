@@ -52,6 +52,14 @@ export const TopBar = styled(AppBar)`
       display: none;
     }
   }
+
+  .mobileInput {
+    display: flex;
+  }
+
+  @media(max-width: 760px ) {
+    padding: 0px 30px;
+  }
 `;
 
 export const Item = styled('li')`
@@ -109,8 +117,25 @@ export const SearchContainer = styled('div')(({ theme }) => ({
 
   '@media(max-width: 760px)': {
     '&': {
-      marginLeft: '40px',
       width: '250px',
+    },
+  },
+
+  '@media(max-width: 650px)': {
+    '&': {
+      width: '200px',
+    },
+  },
+
+  '@media(max-width: 570px)': {
+    '&': {
+      width: '180px',
+    },
+  },
+
+  '@media(max-width: 520px)': {
+    '&': {
+      width: '110px',
     },
   },
 }));
@@ -123,6 +148,13 @@ export const SearchIconWrapper = styled('div')(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'center',
   color: theme.palette.secondary.dark,
+
+  '@media(max-width: 520px)': {
+    padding: theme.spacing(0, 1),
+    '.icon': {
+      display: 'none',
+    },
+  },
 }));
 
 export const StyledInputBase = styled(InputBase)(({ theme }) => ({
