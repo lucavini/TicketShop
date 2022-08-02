@@ -16,6 +16,11 @@ export const TopBar = styled(AppBar)`
     fill: ${({ theme }) => theme.palette.primary.main};
   }
 
+  .close {
+    margin: 0px 25px;
+    fill: ${({ theme }) => theme.palette.primary.main};
+  }
+
   ul {
     height: 100%;
     display: flex;
@@ -27,24 +32,24 @@ export const TopBar = styled(AppBar)`
         display: none;
       }
     }
+
+    .searchButton {
+      display: none;
+      
+      @media (max-width: 950px) {
+        display: contents;
+        .icon {
+          margin: 0px 25px;
+          fill: ${({ theme }) => theme.palette.primary.main};
+        }
+      }
+    }
   }
 
   .defaultInput {
     display: flex;
     @media (max-width: 950px) {
       display: none;
-    }
-  }
-
-  .searchButton {
-    display: none;
-
-    @media (max-width: 950px) {
-      display: contents;
-      .icon {
-        margin: 0px 25px;
-        fill: ${({ theme }) => theme.palette.primary.main};
-      }
     }
   }
 `;
@@ -56,7 +61,7 @@ export const Item = styled('li')`
   cursor: pointer;
 
   & + & {
-    margin-left: 42px;
+    margin-right: 40px;
   }
 
   & a,

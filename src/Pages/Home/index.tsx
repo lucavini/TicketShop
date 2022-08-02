@@ -1,20 +1,20 @@
 import React from 'react';
 
 // Components
+import EventCard from '../../Components/EventCard';
+import Loader from '../../Components/Loader';
 import NavBar from '../../Components/NavBar';
 import SectionTitle from '../../Components/SectionTitle';
 import Categorie from './Components/Categorie';
-import Slider from './Components/Slider';
 import InfoBar from './Components/InfoBar';
-import EventCard from '../../Components/EventCard';
-import Loader from '../../Components/Loader';
+import Slider from './Components/Slider';
 
 // Styles
-import { Categories, Container, Section, EventResults } from './styles';
+import { Categories, Container, EventResults, Section } from './styles';
 
-import { categories } from '../../Service/ApiData';
-import { Api } from '../../Service/api';
 import { WeekEvent } from '../../Interfaces';
+import { Api } from '../../Service/api';
+import { categories } from '../../Service/ApiData';
 
 function Home() {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -40,36 +40,41 @@ function Home() {
 
   return (
     <Container>
-      <Loader isLoading={isLoading} text="Buscando eventos" />
-
       <NavBar />
+      {isLoading ? (
+        <Loader isLoading={isLoading} text="Buscando eventos" />
+      ) : (
+        <>
 
-      <Section>
-        <SectionTitle>Destaques da semana</SectionTitle>
-        <Slider events={weekEvents} />
-      </Section>
+          <Section>
+            <SectionTitle>Destaques da semana</SectionTitle>
+            <Slider events={weekEvents} />
+          </Section>
 
-      <Section>
-        <SectionTitle>Categorias</SectionTitle>
+          <Section>
+            <SectionTitle>Categorias</SectionTitle>
 
-        <Categories>
-          {categories.map((categorie, index) => (
-            <Categorie key={index} title={categorie.title} cover={categorie.cover} />
-          ))}
-        </Categories>
-      </Section>
+            <Categories>
+              {categories.map((categorie, index) => (
+                <Categorie key={index} title={categorie.title} cover={categorie.cover} />
+              ))}
+            </Categories>
+          </Section>
 
-      <Section>
-        <InfoBar />
+          <Section>
+            <InfoBar />
 
-        <EventResults>
-          <EventCard />
-          <EventCard />
-          <EventCard />
-          <EventCard />
-          <EventCard />
-        </EventResults>
-      </Section>
+            <EventResults>
+              <EventCard />
+              <EventCard />
+              <EventCard />
+              <EventCard />
+              <EventCard />
+            </EventResults>
+          </Section>
+        </>
+      )}
+
     </Container>
   );
 }

@@ -20,6 +20,12 @@ export const Content = styled.div`
       color: ${({ theme }) => theme.palette.secondary.dark};
     }
   }
+
+  @media(max-width: 950px) {
+    & + & {
+      margin-left: 40px;
+    }
+  }
 `;
 
 export const Frame = styled.div`

@@ -16,11 +16,23 @@ export const SlideContainer = styled('div')`
         width: 950px;
       }
     }
-    
+
     @media (max-width: 1120px) {
       & {
         width: 750px;
       }
+    }
+
+    @media (max-width: 900px) {
+      & {
+        width: 100%;
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    & .slideButton {
+      display: none;
     }
   }
 `;

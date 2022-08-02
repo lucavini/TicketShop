@@ -18,6 +18,15 @@ export const Categories = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+
+  @media (max-width: 950px) {
+    padding: 10px 0px;
+    height: 170px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
 `;
 
 export const EventResults = styled.div`
