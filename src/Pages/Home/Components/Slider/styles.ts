@@ -10,6 +10,18 @@ export const SlideContainer = styled('div')`
 
   .Swipeable {
     width: 1079px;
+
+    @media (max-width: 1260px) {
+      & {
+        width: 950px;
+      }
+    }
+    
+    @media (max-width: 1120px) {
+      & {
+        width: 750px;
+      }
+    }
   }
 `;
 

@@ -8,6 +8,20 @@ export const Card = styled(Paper)`
   border-radius: 10px;
   margin: 5px 0px;
   padding: 20px;
+
+  @media (max-width: 1260px) {
+    & {
+      width: 950px;
+    }
+  }
+
+  @media (max-width: 1120px) {
+    & {
+      width: 750px;
+      height: 300px;
+      padding: 10px 20px;
+    }
+  }
 `;
 
 export const ImageBox = styled('div')`
@@ -21,6 +35,20 @@ export const ImageBox = styled('div')`
     width: 537px;
     height: 334px;
     object-fit: cover;
+  }
+
+  @media (max-width: 1120px) {
+    & {
+      width: 490px;
+      height: 250px;
+
+      img {
+        width: 350px;
+        height: 250px;
+
+        object-fit: cover;
+      }
+    }
   }
 `;
 
@@ -57,6 +85,13 @@ export const Content = styled('div')`
     margin-left: auto;
     width: 130px;
     height: 40px;
+  }
+
+  @media (max-width: 1120px) {
+    & {
+      width: 490px;
+      height: 280px;
+    }
   }
 `;
 
