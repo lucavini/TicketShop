@@ -21,6 +21,31 @@ export const TopBar = styled(AppBar)`
     display: flex;
     align-items: center;
     list-style: none;
+
+    .option {
+      @media (max-width: 1220px) {
+        display: none;
+      }
+    }
+  }
+
+  .defaultInput {
+    display: flex;
+    @media (max-width: 950px) {
+      display: none;
+    }
+  }
+
+  .searchButton {
+    display: none;
+
+    @media (max-width: 950px) {
+      display: contents;
+      .icon {
+        margin: 0px 25px;
+        fill: ${({ theme }) => theme.palette.primary.main};
+      }
+    }
   }
 `;
 
@@ -34,7 +59,8 @@ export const Item = styled('li')`
     margin-left: 42px;
   }
 
-  & a, button {
+  & a,
+  button {
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
