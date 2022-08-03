@@ -13,6 +13,7 @@ export interface Client {
 }
 
 export interface WeekEvent {
+  id: string,
   cover: string,
   date: string;
   location: string;

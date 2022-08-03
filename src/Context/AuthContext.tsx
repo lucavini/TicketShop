@@ -32,10 +32,10 @@ export function AuthProvider({ children }: ChildrenProps) {
     async function autoLogin() {
       if (storagedUser && token) {
         const tokenJWT = JSON.parse(token);
-        const isTokenValid = await Api('auth/verifytoken', tokenJWT).then((response) => response.data);
 
         setUser(JSON.parse(storagedUser));
         setSigned(true);
+        const isTokenValid = await Api('auth/verifytoken', tokenJWT).then((response) => response.data);
 
         if (!isTokenValid) {
           setSigned(false);

@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.section`
   width: 100%;
   padding: 0px 5%;
-  padding-top: 60px;
   margin-bottom: 60px;
+  padding-top: 60px;
 `;
 
 export const Section = styled.section`

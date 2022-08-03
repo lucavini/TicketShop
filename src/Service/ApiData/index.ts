@@ -54,6 +54,7 @@ export const categories: CategoriesProps[] = [
 export const weekEvents: WeekEvent[] = [
   {
     cover: whindersson,
+    id: 'ab12-cd34',
     date: 'de: 06/08 até: 07/08',
     location: 'Rio de janeiro, RJ',
     title: 'whindersson nunes: Proparoxitona',
@@ -62,6 +63,7 @@ export const weekEvents: WeekEvent[] = [
   },
   {
     cover: concurso,
+    id: 'ab56-cd78',
     date: 'de: 06/08 até: 07/08',
     location: 'São Paulo, SP',
     title: 'Como se preparar para concursos ?',
@@ -70,6 +72,7 @@ export const weekEvents: WeekEvent[] = [
   },
   {
     cover: anitta,
+    id: 'ab910-cd1112',
     date: 'de: 06/08 até: 07/08',
     location: 'Rio de janeiro, RJ',
     title: 'Show Completo | Anitta + Maiara & Maraisa',
@@ -78,6 +81,7 @@ export const weekEvents: WeekEvent[] = [
   },
   {
     cover: lollapalooza,
+    id: 'ab1314-cd1516',
     date: 'de: 06/08 até: 07/08',
     location: 'Rio de janeiro, RJ',
     title: 'Lollapalooza 2022',

@@ -6,6 +6,7 @@ import { Container } from './styles';
 import Auth from '../Pages/Auth';
 import Home from '../Pages/Home';
 import MyAccount from '../Pages/MyAccount';
+import AboutEvent from '../Pages/AboutEvent';
 
 interface ProtectedRouteProps {
   signed: boolean
@@ -33,10 +34,11 @@ function Router() {
           {/* Public */}
           <Route path='/' element={<Home />} />
           <Route path='/login/*' element={<Auth />} />
+          <Route path='/event/' element={<AboutEvent />} />
 
           {/* Private */}
           <Route
-            path='/myaccout/'
+            path='/myaccout/:id'
             element={<ProtectedRoute signed={signed}><MyAccount /></ProtectedRoute>}
           />
         </Routes>
