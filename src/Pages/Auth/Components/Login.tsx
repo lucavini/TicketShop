@@ -166,6 +166,14 @@ function Login() {
         )}
 
         <div className="buttons fullColumn">
+          <PrimaryButton
+            variant="contained"
+            type="submit"
+            loadingPosition='center'
+            loading={isLoading}
+          >
+            Login
+          </PrimaryButton>
 
           <SecondaryButton
             className="secondary-button"
@@ -175,14 +183,6 @@ function Login() {
           >
             Cadastrar
           </SecondaryButton>
-          <PrimaryButton
-            variant="contained"
-            type="submit"
-            loadingPosition='center'
-            loading={isLoading}
-          >
-            Login
-          </PrimaryButton>
         </div>
       </form>
     </ActionContainer>
