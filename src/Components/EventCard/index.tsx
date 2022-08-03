@@ -1,24 +1,32 @@
 import { PlaceOutlined } from '@mui/icons-material';
 import { Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import { Caption, Card, ImageBox, Title } from './styles';
 
-import cover from '../../Assets/images/banner1.png';
+import { WeekEvent } from '../../Interfaces';
 
-function EventCard() {
+type Props = {
+  event: WeekEvent;
+};
+
+function EventCard({ event }: Props) {
+  const navigate = useNavigate();
   return (
     <Card>
       <ImageBox>
-        <img src={cover} alt="cover" />
+        <img src={event.cover} alt='cover' />
       </ImageBox>
 
-      <Caption>de: 06/08 até: 07/08</Caption>
-      <Title>whindersson nunes: Proparoxitona</Title>
+      <Caption>{event.date}</Caption>
+      <Title>{event.title}</Title>
 
       <Caption className='location'>
-        <PlaceOutlined className='icon' /> Rio de janeiro, RJ
+        <PlaceOutlined className='icon' /> {event.location}
       </Caption>
 
-      <Button variant='outlined'>ver mais</Button>
+      <Button variant='outlined' onClick={() => navigate(`/event/${event.id}`)}>
+        ver mais
+      </Button>
     </Card>
   );
 }

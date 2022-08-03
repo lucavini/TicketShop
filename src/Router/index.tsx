@@ -34,11 +34,11 @@ function Router() {
           {/* Public */}
           <Route path='/' element={<Home />} />
           <Route path='/login/*' element={<Auth />} />
-          <Route path='/event/' element={<AboutEvent />} />
+          <Route path='/event/:id' element={<AboutEvent />} />
 
           {/* Private */}
           <Route
-            path='/myaccout/:id'
+            path='/myaccout/'
             element={<ProtectedRoute signed={signed}><MyAccount /></ProtectedRoute>}
           />
         </Routes>

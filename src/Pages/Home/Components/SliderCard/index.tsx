@@ -1,4 +1,5 @@
 // Components
+import { useNavigate } from 'react-router-dom';
 import { PlaceOutlined } from '@mui/icons-material';
 import { Button } from '@mui/material';
 import { WeekEvent } from '../../../../Interfaces';
@@ -11,6 +12,7 @@ type Props = {
 };
 
 function SliderCard({ event }: Props) {
+  const navigate = useNavigate();
   return (
     <Card>
       <ImageBox>
@@ -29,7 +31,7 @@ function SliderCard({ event }: Props) {
           {event.description}
         </Description>
 
-        <Button variant='outlined'>ver mais</Button>
+        <Button variant='outlined' onClick={() => navigate(`/event/${event.id}`)}>ver mais</Button>
       </Content>
     </Card>
   );

@@ -15,6 +15,11 @@ export function Api(EndPoint: string, params: any): Promise<any> {
 
       } else if (EndPoint === 'WeekEvents/') {
         resolve({ data: weekEvents });
+
+      } else if (EndPoint === 'getEventById/') {
+        const event = weekEvents.filter((weekevent) => weekevent.id === String(params));
+        resolve(event[0]);
+
       } else {
         reject({ message: 'Error' });
       }

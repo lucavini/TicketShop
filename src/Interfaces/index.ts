@@ -19,6 +19,7 @@ export interface WeekEvent {
   location: string;
   title: string;
   description: string;
+  price: string;
 }
 
 export interface Event {

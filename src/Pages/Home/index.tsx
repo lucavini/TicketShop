@@ -65,11 +65,9 @@ function Home() {
             <InfoBar />
 
             <EventResults>
-              <EventCard />
-              <EventCard />
-              <EventCard />
-              <EventCard />
-              <EventCard />
+              {weekEvents.map((events, index) => (
+                <EventCard event={events} key={index} />
+              ))}
             </EventResults>
           </Section>
         </>

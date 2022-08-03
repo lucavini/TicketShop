@@ -58,6 +58,7 @@ export const weekEvents: WeekEvent[] = [
     date: 'de: 06/08 até: 07/08',
     location: 'Rio de janeiro, RJ',
     title: 'whindersson nunes: Proparoxitona',
+    price: '99,99',
     description:
       'Whindersson Nunes Batista, mais conhecido como Whindersson Nunes é um comediante, youtuber, cantor, compositor e ator brasileiro, conheci...',
   },
@@ -67,15 +68,17 @@ export const weekEvents: WeekEvent[] = [
     date: 'de: 06/08 até: 07/08',
     location: 'São Paulo, SP',
     title: 'Como se preparar para concursos ?',
+    price: '59,99',
     description:
       'Começar qualquer coisa do zero pode ser muito intimidador e estudar para concurso não é uma exceção: entre a infinidade de carreiras, cont...',
   },
   {
+    title: 'Show Completo | Anitta + Maiara & Maraisa',
     cover: anitta,
     id: 'ab910-cd1112',
     date: 'de: 06/08 até: 07/08',
     location: 'Rio de janeiro, RJ',
-    title: 'Show Completo | Anitta + Maiara & Maraisa',
+    price: '199,99',
     description:
       'A dupla Maiara & Maraisa convidam Anitta para cantar "Show Completo" no Música Boa Ao Vivo desta terça-feira, dia 8.',
   },
@@ -85,6 +88,7 @@ export const weekEvents: WeekEvent[] = [
     date: 'de: 06/08 até: 07/08',
     location: 'Rio de janeiro, RJ',
     title: 'Lollapalooza 2022',
+    price: '399,99',
     description:
       'Programação, line-up, shows ao vivo, notícias, fotos e vídeos sobre o festival de música Lollapalooza 2022, que acontece nos dias 25, 26 e 27 de Março',
   },
